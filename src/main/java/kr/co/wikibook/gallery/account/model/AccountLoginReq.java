@@ -5,7 +5,6 @@ import lombok.Getter;
 
 @Getter
 public class AccountLoginReq {
-    private int id;
-    @JsonIgnore
+    private String loginId;
     private String loginPw;
 }

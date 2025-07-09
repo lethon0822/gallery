@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.wikibook.gallery.cart.CartMapper">
+    <insert id="save">
+        INSERT INTO carts
+        SET member_id = #{memberId},
+            item_id = #{itemId}
+    </insert>
+
+    <select id="findAllWithItemByMemberId">
+        SELECT carts.id, items.name, items.price, items.img_path, items.discount_per
+        FROM carts
+        JOIN items
+        ON carts.item_id = items.id
+        WHERE carts.member_id = #{memberId}
+    </select>
+
+    <delete id="deleteByMemberIdAndItemId">
+        DELETE FROM carts
+        WHERE item_id = #{itemId} AND member_id = #{memberId}
+    </delete>
+
+</mapper>

@@ -19,11 +19,13 @@ public class CartService {
         return cartMapper.save(req);
     }
 
-    public List<CartGetRes> findAll (int memberId) {
-        return  cartMapper.findAllWithItemByMemberId(memberId);
-    }
+    public List<CartGetRes> findAll (int memberId) { return  cartMapper.findAllWithItemByMemberId(memberId); }
 
     public int remove (CartDeleteReq req) {
-        return cartMapper.deleteByMemberIdAndItemId(req);
+        return cartMapper.deleteByCartIdAndMemberId(req);
+    }
+
+    public int removeAll (int memberId) {
+        return cartMapper.deleteByMemberId(memberId);
     }
 }

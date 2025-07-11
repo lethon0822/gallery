@@ -8,6 +8,6 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public class OrderItemPostDto {
-    private int order_id;
+    private int orderId;
     private List<Integer> itemIds;
 }
